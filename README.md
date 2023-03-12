@@ -6,7 +6,7 @@ Clone MoneyWall repo using git:
 ```
 git clone https://github.com/agamy5280/Sprints-Grad-Project.git
 ```
-#Front-End
+# Front-End
 Install the dependencies:
 ```
 npm install
@@ -15,7 +15,7 @@ Run Application
 ```
 ng serve
 ```
-#Back-End
+# Back-End
 ```
 cp .env.example .env
 ```

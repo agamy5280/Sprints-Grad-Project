@@ -1,0 +1,497 @@
+<div class="container">
+  <div class="row gutters-sm">
+    <div class="col-md-4 d-none d-md-block">
+      <div class="card">
+        <div class="card-body">
+          <nav class="nav flex-column nav-pills nav-gap-y-1">
+            <a
+              data-bs-toggle="tab"
+              data-bs-target="#profile"
+              class="nav-item nav-link has-icon nav-link-faded active"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-user mr-2"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle></svg
+              >Profile Information
+            </a>
+            <a
+              data-bs-toggle="tab"
+              data-bs-target="#account"
+              class="nav-item nav-link has-icon nav-link-faded"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-settings mr-2"
+              >
+                <circle cx="12" cy="12" r="3"></circle>
+                <path
+                  d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+                ></path></svg
+              >Account Settings
+            </a>
+            <a
+              data-bs-toggle="tab"
+              data-bs-target="#security"
+              class="nav-item nav-link has-icon nav-link-faded"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-shield mr-2"
+              >
+                <path
+                  d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                ></path></svg
+              >Security
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header border-bottom mb-3 d-flex d-md-none">
+          <ul class="nav nav-tabs card-header-tabs nav-gap-x-1" role="tablist">
+            <li class="nav-item">
+              <a
+                data-bs-toggle="tab"
+                data-bs-target="#profile"
+                class="av-item nav-link has-icon nav-link-faded active"
+                ><i class="fas fa-user"></i
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a
+                data-bs-toggle="tab"
+                data-bs-target="#account"
+                class="nav-item nav-link has-icon nav-link-faded"
+                ><i class="fas fa-cog"></i
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a
+                data-bs-toggle="tab"
+                data-bs-target="#security"
+                class="nav-item nav-link has-icon nav-link-faded"
+                ><i class="fas fa-shield-alt"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="tab-content">
+          <div class="tab-pane active" id="profile" style="margin: 50px">
+            <h1>YOUR PROFILE INFORMATION</h1>
+
+            <hr />
+            <form
+              [formGroup]="profileForm"
+              id="profileForm"
+              (ngSubmit)="editProfile()"
+            >
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+
+                <input
+                  type="text"
+                  [(ngModel)]="user.fname"
+                  class="form-control"
+                  id="firstName"
+                  aria-describedby="firstNameHelp"
+                  placeholder="Enter your first name"
+                  formControlName="firstName"
+                />
+
+                <small id="firstNameHelp" class="form-text text-muted"
+                  >Your name may appear around here where you are mentioned. You
+                  can change or remove it at any time.</small
+                >
+                <ng-container *ngIf="profileForm.controls['firstName'].touched">
+                  <p
+                    class="invalid-info"
+                    *ngIf="profileForm.controls['firstName']?.errors?.['pattern']"
+                  >
+                    First Name must not contains numbers!
+                  </p>
+                </ng-container>
+              </div>
+
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input
+                  type="text"
+                  [(ngModel)]="user.lname"
+                  class="form-control"
+                  id="lastName"
+                  aria-describedby="lastNameHelp"
+                  placeholder="Enter your last name"
+                  formControlName="lastName"
+                />
+                <small id="firstNameHelp" class="form-text text-muted"
+                  >Your name may appear around here where you are mentioned. You
+                  can change or remove it at any time.</small
+                >
+                <ng-container *ngIf="profileForm.controls['lastName'].touched">
+                  <p
+                    class="invalid-info"
+                    *ngIf="profileForm.controls['lastName']?.errors?.['pattern']"
+                  >
+                    Last Name must not contains numbers!
+                  </p>
+                </ng-container>
+              </div>
+
+              <div class="form-group">
+                <label for="userName">Username</label>
+
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="user.username"
+                  id="userName"
+                  aria-describedby="userNameHelp"
+                  placeholder="Enter your Username"
+                  formControlName="userName"
+                />
+
+                <small id="userNameHelp" class="form-text text-muted"
+                  >Your username may appear around here where you are mentioned.
+                  You can change or remove it at any time.</small
+                >
+                <ng-container *ngIf="profileForm.controls['userName'].touched">
+                  <p
+                    class="invalid-info"
+                    *ngIf="profileForm.controls['userName']?.errors?.['maxlength']"
+                  >
+                    Username must be no more than 22 characters!
+                  </p>
+                </ng-container>
+              </div>
+
+              <div class="form-group">
+                <label for="birthday">Birthday</label>
+
+                <input
+                  type="date"
+                  type="date"
+                  data-date=""
+                  data-date-format="DD MMMM YYYY"
+                  class="form-control"
+                  id="birthday"
+                  [(ngModel)]="user.birthday"
+                  aria-describedby="birthdayHelp"
+                  formControlName="birthday"
+                />
+
+                <small id="birthdayHelp" class="form-text text-muted"
+                  >Please enter your birthday.</small
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="mobileNum">Mobile Number</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="user.mobile"
+                  id="mobileNum"
+                  aria-describedby="MobileNumHelp"
+                  placeholder="Enter your mobile number"
+                  formControlName="mobileNum"
+                />
+                <small id="mobileNumHelp" class="form-text text-muted"
+                  >Enter a working mobile number.</small
+                >
+                <ng-container *ngIf="profileForm.controls['mobileNum'].touched">
+                  <p
+                    class="invalid-info"
+                    *ngIf="profileForm.controls['mobileNum']?.errors?.['minlength']"
+                  >
+                    Mobile number Must be at least 10 numbers!
+                  </p>
+                </ng-container>
+                <ng-container *ngIf="profileForm.controls['mobileNum'].touched">
+                  <p
+                    class="invalid-info"
+                    *ngIf="profileForm.controls['mobileNum']?.errors?.['maxlength']"
+                  >
+                    Mobile number Must be at most 20 numbers!
+                  </p>
+                </ng-container>
+                <ng-container *ngIf="profileForm.controls['mobileNum'].touched">
+                  <p
+                    class="invalid-info"
+                    *ngIf="profileForm.controls['mobileNum']?.errors?.['pattern']"
+                  >
+                    Mobile number Must not contains characters!
+                  </p>
+                </ng-container>
+              </div>
+
+              <div class="form-group">
+                <label for="addressStreet">Address</label>
+                <input
+                  type="text"
+                  [(ngModel)]="user.address"
+                  class="form-control"
+                  id="addressStreet"
+                  placeholder="Enter your current Address"
+                  formControlName="address"
+                />
+                <ng-container *ngIf="profileForm.controls['address'].touched">
+                  <p
+                    class="invalid-info"
+                    *ngIf="profileForm.controls['address']?.errors?.['minlength']"
+                  >
+                    Please type a correct address!
+                  </p>
+                </ng-container>
+              </div>
+
+              <div class="form-group">
+                <label for="inputCity">City</label>
+                <input
+                  type="text"
+                  [(ngModel)]="user.city"
+                  class="form-control"
+                  id="inputCity"
+                  name="city"
+                  placeholder="Alexandria"
+                  formControlName="city"
+                />
+                <ng-container *ngIf="profileForm.controls['city'].touched">
+                  <p
+                    class="invalid-info"
+                    *ngIf="profileForm.controls['city']?.errors?.['pattern']"
+                  >
+                    City Name must not contains numbers!
+                  </p>
+                </ng-container>
+              </div>
+
+              <div class="form-group">
+                <label for="inputState">Country</label>
+                <input
+                  type="text"
+                  [(ngModel)]="user.country"
+                  class="form-control"
+                  id="inputState"
+                  name="state"
+                  placeholder="Alexandria"
+                  formControlName="state"
+                />
+                <ng-container *ngIf="profileForm.controls['state'].touched">
+                  <p
+                    class="invalid-info"
+                    *ngIf="profileForm.controls['state']?.errors?.['pattern']"
+                  >
+                    State Name must not contains numbers!
+                  </p>
+                </ng-container>
+              </div>
+
+              <div class="form-group">
+                <label for="inputZip">Zip</label>
+                <input
+                  type="text"
+                  [(ngModel)]="user.zip"
+                  class="form-control"
+                  id="inputZip"
+                  formControlName="zip"
+                />
+                <ng-container *ngIf="profileForm.controls['zip'].touched">
+                  <p
+                    class="invalid-info"
+                    *ngIf="profileForm.controls['zip']?.errors?.['pattern']"
+                  >
+                    Zip Code number Must not contains characters!
+                  </p>
+                </ng-container>
+                <ng-container *ngIf="profileForm.controls['zip'].touched">
+                  <p
+                    class="invalid-info"
+                    *ngIf="profileForm.controls['zip']?.errors?.['maxlength']"
+                  >
+                    Zip Code number Must be at most 8 numbers!
+                  </p>
+                </ng-container>
+              </div>
+
+              <div class="form-group small text-muted">
+                All of the fields on this page are optional and can be changed
+                at any time.
+              </div>
+              <input type="submit" id="submit" class="btn btn-primary" />
+
+              <!-- <input type="submit" value="Update" id="submit" class="btn btn-primary" [disabled]="!profileForm.valid"> -->
+              <button type="reset" class="btn btn-light">Reset Changes</button>
+            </form>
+          </div>
+
+          <div class="tab-pane" id="account" style="margin: 50px">
+            <h1>ACCOUNT SETTINGS</h1>
+            <hr />
+            <form
+              [formGroup]="settingForm"
+              id="settingForm"
+              (ngSubmit)="deleteAcount()"
+            >
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  name="email"
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  aria-describedby="emailHelp"
+                  formControlName="email"
+                  ngModel
+                  email="true"
+                  placeholder="Enter your email"
+                />
+                <ng-container *ngIf="settingForm.controls['email'].touched">
+                  <p
+                    class="invalid-info"
+                    *ngIf="settingForm.controls['email']?.errors?.['email']?.errors?.['nonWhitespaceRegExp']"
+                  >
+                    Not valid email address!
+                  </p>
+                </ng-container>
+              </div>
+
+              <label for="password">Password</label>
+
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Enter your password"
+                formControlName="password"
+              />
+
+              <hr />
+              <div class="form-group">
+                <!-- <label class="d-block text-danger">Delete Account</label> -->
+                <p class="text-muted font-size-sm">
+                  Once you delete your account, there is no going back. Please
+                  be certain.
+                </p>
+              </div>
+
+              <button type="submit" class="btn btn-danger" type="submit">
+                Delete Account
+              </button>
+            </form>
+            <!-- <form>
+              <button type="submit" class="btn btn-danger" type="button">Delete
+                Account</button>
+            </form> -->
+          </div>
+
+          <div class="tab-pane" id="security" style="margin: 50px">
+            <h1>SECURITY SETTINGS</h1>
+            <hr />
+            <form
+              [formGroup]="changePasswordForm"
+              id="changePasswordForm"
+              (ngSubmit)="changePassword()"
+            >
+              <div class="form-group">
+                <label class="d-block">Change Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Enter your old password"
+                  formControlName="oldPassword"
+                />
+                <ng-container
+                  *ngIf="changePasswordForm.controls['oldPassword'].touched"
+                >
+                  <p
+                    class="invalid-info"
+                    *ngIf="changePasswordForm.controls['oldPassword']?.errors?.['minlength']"
+                  >
+                    Password must be at least 8 characters!
+                  </p>
+                </ng-container>
+                <input
+                  type="password"
+                  class="form-control mt-1"
+                  placeholder="New password"
+                  formControlName="newPassword"
+                />
+                <ng-container
+                  *ngIf="changePasswordForm.controls['newPassword'].touched"
+                >
+                  <p
+                    class="invalid-info"
+                    *ngIf="changePasswordForm.controls['newPassword']?.errors?.['minlength']"
+                  >
+                    Password must be at least 8 characters!
+                  </p>
+                </ng-container>
+                <input
+                  type="password"
+                  class="form-control mt-1"
+                  placeholder="Confirm new password"
+                  formControlName="confirmPassword"
+                />
+                <ng-container
+                  *ngIf="changePasswordForm.controls['confirmPassword'].touched"
+                >
+                  <p
+                    class="invalid-info"
+                    *ngIf="changePasswordForm.controls['confirmPassword']?.errors?.['minlength']"
+                  >
+                    Password must be at least 8 characters!
+                  </p>
+                </ng-container>
+                <ng-container
+                  *ngIf="changePasswordForm.controls['confirmPassword'].touched"
+                >
+                  <p
+                    class="invalid-info"
+                    *ngIf="
+                      changePasswordForm.controls['confirmPassword']?.errors
+                    "
+                  >
+                    Password mismatch!
+                  </p>
+                </ng-container>
+              </div>
+              <input
+                type="submit"
+                value="Confirm"
+                id="submit2"
+                class="btn btn-primary"
+                [disabled]="!changePasswordForm.valid"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

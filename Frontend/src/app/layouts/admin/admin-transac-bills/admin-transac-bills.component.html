@@ -1,0 +1,43 @@
+
+
+<div class="container ">
+    <div class="row gutters-sm">
+      <div class="col-md-12 ">
+        <div class="card ">
+          <div class="tab-content " style="margin: 50px;">
+  
+            <hr>
+            <h1 class="bold font-weight-bold text-center"> Transaction Bills</h1>
+            <hr>
+  
+               <table class="table col-md-12 col-ms-auto col-auto">
+                 <thead class="thead-dark">
+                   <tr class="text-center">
+                     <th scope="col">ID</th>
+                     <th scope="col">Amount</th>
+                     <th scope="col">Description</th>
+                     <th scope="col">user ID  </th>
+                     <th scope="col">Bill ID  </th>
+
+
+                   </tr>
+                 </thead>
+                 <tbody *ngFor="let data of data">
+                   <tr class="text-center">
+                     <th scope="row">{{ data["id"] }}</th>
+                     <td>{{ data["amount"] }}</td>
+                     <td>{{ data["description"] }}</td>
+                     <td>{{ data["userID"] }}</td>
+                     <td>{{ data["billID"] }}</td>
+                   
+                   </tr>
+                 </tbody>
+               </table>
+  
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  

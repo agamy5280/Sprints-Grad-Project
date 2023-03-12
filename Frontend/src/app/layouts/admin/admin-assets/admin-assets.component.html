@@ -1,0 +1,45 @@
+
+<div class="container ">
+    <div class="row gutters-sm">
+      <div class="col-md-12 ">
+        <div class="card ">
+          <div class="tab-content " style="margin: 50px;">
+  
+            <hr>
+            <h1 class="bold font-weight-bold text-center"> Assets </h1>
+            <hr>
+  
+  
+  
+            <table class="table col-md-12 col-ms-auto col-auto">
+              <thead class="thead-dark">
+      <tr class="text-center">
+        <th scope>ID</th>
+        <th scope>created_at</th>
+        <th scope>document</th>
+        <th scope>user ID</th>
+        <th scope>status</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let asset of userAssets; let i = index">
+      <tr class="text-center">
+        <th scope="row">{{asset["id"] }}</th>
+        <td>{{ asset["created_at"] }}</td>
+        <td>{{ asset["document"] }}</td>
+        <td>{{ asset["userID"] }}</td>
+        <td>{{ asset["status"] }}</td>
+       
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  
+  

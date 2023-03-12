@@ -1,0 +1,95 @@
+<div class="jpg">
+  <div class="body">
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <i class="fas fa-user"></i>
+        </div>
+
+        <!-- Register Form -->
+        <form [formGroup]="registerForm" id="registerForm" (ngSubmit)="register()">
+          <input type="text" id="fname" placeholder="First Name" formControlName="fname">
+          <ng-container *ngIf="registerForm.controls['fname'].touched">
+            <p class="invalid-info" *ngIf="registerForm.controls['fname']?.errors?.['required']">Please type your
+              First
+              Name!</p>
+          </ng-container>
+          <ng-container *ngIf="registerForm.controls['fname'].touched">
+            <p class="invalid-info" *ngIf="registerForm.controls['fname']?.errors?.['pattern']">First Name must not
+              contains numbers!</p>
+          </ng-container>
+          <input type="text" id="lname" placeholder="Last Name" formControlName="lname">
+          <ng-container *ngIf="registerForm.controls['lname'].touched">
+            <p class="invalid-info" *ngIf="registerForm.controls['lname']?.errors?.['required']">Please type your
+              Last
+              Name!</p>
+          </ng-container>
+          <ng-container *ngIf="registerForm.controls['lname'].touched">
+            <p class="invalid-info" *ngIf="registerForm.controls['lname']?.errors?.['pattern']">Last Name must not
+              contains numbers!</p>
+          </ng-container>
+          <input type="text" id="email" placeholder="Your Email" formControlName="email">
+          <ng-container *ngIf="registerForm.controls['email'].touched">
+            <p class="invalid-info" *ngIf="registerForm.controls['email']?.errors?.['required']">Please type your email!
+            </p>
+          </ng-container>
+          <ng-container *ngIf="registerForm.controls['email'].touched">
+            <p class="invalid-info" *ngIf="registerForm.controls['email']?.errors?.['email']">Please type a valid email!
+            </p>
+          </ng-container>
+          <input type="text" id="username" placeholder="Username" formControlName="username">
+          <ng-container *ngIf="registerForm.controls['username'].touched">
+            <p class="invalid-info" *ngIf="registerForm.controls['username']?.errors?.['required']">Please type your
+              username!</p>
+          </ng-container>
+          <ng-container *ngIf="registerForm.controls['username'].touched">
+            <p class="invalid-info" *ngIf="registerForm.controls['username']?.errors?.['minlength']">Username must be at
+              least 8 characters!</p>
+          </ng-container>
+          <ng-container *ngIf="registerForm.controls['username'].touched">
+            <p class="invalid-info" *ngIf="registerForm.controls['username']?.errors?.['pattern']">Username must start
+              with characters!</p>
+          </ng-container>
+          <input type="text" id="national_Id" placeholder="National ID" formControlName="national_Id">
+          <ng-container *ngIf="registerForm.controls['national_Id'].touched">
+            <p class="invalid-info" *ngIf="registerForm.controls['national_Id']?.errors?.['required']">Please type your
+              national ID!</p>
+          </ng-container>
+          <ng-container *ngIf="registerForm.controls['national_Id'].touched">
+            <p class="invalid-info" *ngIf="registerForm.controls['national_Id']?.errors?.['minlength']">National ID Must
+              be
+              14 numbers!</p>
+          </ng-container>
+          <ng-container *ngIf="registerForm.controls['national_Id'].touched">
+            <p class="invalid-info" *ngIf="registerForm.controls['national_Id']?.errors?.['maxlength']">National ID Must
+              be
+              14 numbers!</p>
+          </ng-container>
+          <ng-container *ngIf="registerForm.controls['national_Id'].touched">
+            <p class="invalid-info" *ngIf="registerForm.controls['national_Id']?.errors?.['pattern']">National ID must
+              contain only numbers!</p>
+          </ng-container>
+          <input type="password" id="password" placeholder="Password" formControlName="password">
+          <ng-container *ngIf="registerForm.controls['password'].touched">
+            <p class="invalid-info" *ngIf="registerForm.controls['password']?.errors?.['required']">Please type your
+              password!</p>
+          </ng-container>
+          <ng-container *ngIf="registerForm.controls['password'].touched">
+            <p class="invalid-info" *ngIf="registerForm.controls['password']?.errors?.['minlength']">Password must be at
+              least 8 characters!</p>
+          </ng-container>
+          <input type="submit" value="Sign Up" id="submit" [hidden]="!registerForm.valid">
+        </form>
+
+        <!-- Register Form Errors -->
+        <ng-container *ngIf="errorMsg">
+          <p class="invalid-info">{{errorMsg}}!</p>
+        </ng-container>
+        <div id="formFooter">
+          <a class="underlineHover" href="login">Already have an account?, Login Now!</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

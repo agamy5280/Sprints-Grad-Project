@@ -1,0 +1,45 @@
+
+
+<div class="container ">
+  <div class="row gutters-sm">
+    <div class="col-md-12 ">
+      <div class="card ">
+        <div class="tab-content " style="margin: 50px;">
+
+          <hr>
+          <h1 class="bold font-weight-bold text-center"> Bills</h1>
+          <hr>
+
+             <table class="table col-md-12 col-ms-auto col-auto">
+               <thead class="thead-dark">
+                 <tr class="text-center">
+                   <th scope="col">ID</th>
+                   <th scope="col">Type</th>
+                   <th scope="col">Company Name</th>
+                   <th scope="col">Description</th>
+                   <th scope="col">Amount</th>
+                   <th scope="col">status</th>
+                   <th scope="col">Due Time</th>
+                   <th scope="col">User ID</th>
+                 </tr>
+               </thead>
+               <tbody *ngFor="let data of bills">
+                 <tr class="text-center">
+                   <th scope="row">{{ data["id"] }}</th>
+                   <td>{{ data["type"] }}</td>
+                   <td>{{ data["company_name"] }}</td>
+                   <td>{{ data["description"] }}</td>
+                   <td>{{ data["amount"] }}</td>
+                   <td>{{ data["status"] }}</td>
+                   <td>{{ data["due_time"] }}</td>
+                   <td>{{ data["userID"] }}</td>
+                 </tr>
+               </tbody>
+             </table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+

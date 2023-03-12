@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row gutters-sm">
+    <div class="col-md-12">
+      <div class="card">
+        <!-- Small boxes (Stat box) -->
+        <div class="row" style="margin: 50px">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <a routerLink="/admin/assets">
+              <div class="small-box bg-info">
+                <div class="inner">
+                  <h3 class="text-white">{{ assetsCount }}</h3>
+                  <h6 class="text-white">Assets</h6>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- ./col -->
+
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <a routerLink="/admin/TransactionBills">
+              <div class="small-box bg-success">
+                <div class="inner">
+                  <h3 class="text-white">{{ billsCount }}</h3>
+
+                  <h6 class="text-white">Bills</h6>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <a routerLink="/admin/users">
+              <div class="small-box bg-warning">
+                <div class="inner">
+                  <h3 class="text-white">{{ usersCount }}</h3>
+
+                  <h6 class="text-white">Users</h6>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-person-add"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <a routerLink="/admin/TransactionMoney">
+              <div class="small-box bg-danger">
+                <div class="inner">
+                  <h3 class="text-white">{{ transCount }}</h3>
+
+                  <h6 class="text-white">Transactions</h6>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- ./col -->
+        </div>
+
+        <div class="container-fluid"></div>
+      </div>
+    </div>
+  </div>
+</div>

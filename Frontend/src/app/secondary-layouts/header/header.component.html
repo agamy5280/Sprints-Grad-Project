@@ -1,0 +1,127 @@
+<!-- Navbar Start -->
+<nav
+  class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5"
+  *ngIf="
+    router.url !== '/login' &&
+    router.url !== '/register' &&
+    router.url !== '/admin' &&
+    router.url !== '/admin/users' &&
+    router.url !== '/admin/bills' &&
+    router.url !== '/admin/AseetsRequests' &&
+    router.url !== '/admin/sendbill' &&
+    router.url !== '/admin/dashboard' &&
+    router.url !== '/admin/assets' &&
+    router.url !== '/admin/TransactionBills' &&
+    router.url !== '/admin/TransactionMoney' &&
+    router.url !== '/admin/TransactionAssets'
+  "
+>
+  <a [routerLink]="['']" class="navbar-brand d-flex align-items-center">
+    <h2 class="m-0 text-primary">MoneyWall</h2>
+  </a>
+  <button
+    type="button"
+    class="navbar-toggler"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarCollapse"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav ms-auto py-4 py-lg-0">
+      <a routerLink="/home" routerLinkActive="active" class="nav-item nav-link"
+        >Home</a
+      >
+      <div class="nav-item dropdown" *ngIf="!userService.getIsAuthenticated()">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+          >Welcome</a
+        >
+        <div class="dropdown-menu shadow-sm m-0">
+          <a
+            routerLink="/register"
+            routerLinkActive="active"
+            class="dropdown-item"
+            >Sign up</a
+          >
+          <a routerLink="/login" routerLinkActive="active" class="dropdown-item"
+            >Sign in</a
+          >
+        </div>
+      </div>
+      <a
+        routerLink="/contact"
+        routerLinkActive="active"
+        class="nav-item nav-link"
+        >Contact</a
+      >
+      <a routerLink="/about" routerLinkActive="active" class="nav-item nav-link"
+        >About</a
+      >
+      <a routerLink="home/services" class="nav-item nav-link">Service</a>
+      <div class="nav-item dropdown" *ngIf="userService.getIsAuthenticated()">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+          ><i id="user-icon" class="fa fa-user" style="color: #16d5ff"></i
+          >Welcome {{ userService.getName() }}</a
+        >
+        <div class="dropdown-menu shadow-sm m-0">
+          <a routerLink="/profile" class="dropdown-item">My Profile</a>
+          <a routerLink="/assets" class="dropdown-item">My Assets</a>
+          <a routerLink="/sendMoney" class="dropdown-item">Send Money</a>
+          <a routerLink="/balance" class="dropdown-item">My Balance</a>
+          <a routerLink="/invoices" class="dropdown-item">My Invoices</a>
+          <a
+            id="signOut"
+            routerLinkActive="active"
+            (click)="signOut()"
+            class="dropdown-item"
+            >Sign Out</a
+          >
+        </div>
+      </div>
+      <!-- Notifications Dropdown Menu -->
+      <div class="notifications">
+        <li class="nav-item dropdown" *ngIf="userService.getIsAuthenticated()">
+          <a
+            routerLink="/transactions"
+            class="nav-link"
+            data-bs-toggle="dropdown"
+            href="#"
+          >
+            <i class="far fa-bell" style="color: #16d5ff"></i>
+            <span class="badge badge-warning navbar-badge">{{
+              newBills.length
+            }}</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <span class="dropdown-item dropdown-header">Bills</span>
+            <!-- <div class="dropdown-divider"></div> -->
+            <!-- <a href="#" class="dropdown-item">
+                        <i class="fas fa-envelope mr-2"></i> 4 new messages
+                        <span class="float-right text-muted text-sm">3 mins</span>
+                    </a> -->
+            <div class="dropdown-divider">Bills</div>
+            <a
+              id="bill-dropdown"
+              routerLink="/myBills"
+              class="dropdown-item"
+              *ngFor="let bill of bills | slice : -2"
+            >
+              <i id="bill-icon" class="fas fa-file mr-2"></i>
+              <span>{{ bill.company_name }}</span>
+              <p>Status:{{ bill.status }}</p>
+              <p>Amount:{{ bill.amount | currency }}</p>
+              <span id="due-date" class="float-right text-muted text-sm"
+                >DueDate{{ bill.due_time }}</span
+              >
+            </a>
+            <div class="dropdown-divider"></div>
+            <a routerLink="/transactions" class="dropdown-item dropdown-footer"
+              >See All Notifications</a
+            >
+          </div>
+        </li>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- Navbar End -->

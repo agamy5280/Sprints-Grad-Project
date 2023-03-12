@@ -1,0 +1,210 @@
+<body>
+  <div class="container-fluid hero-header bg-light py-5 mb-5">
+    <div class="container py-5">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <h1 class="display-4 mb-3 animated slideInDown">Make Better Life With Trusted {{name}}</h1>
+          <p class="animated slideInDown">Easily and securely spend, send, and manage your transactions—all in
+            one place. sign up for free online.</p>
+          <a *ngIf="!userService.getIsAuthenticated()" routerLink="/register"
+            class="btn btn-primary py-3 px-4 animated slideInDown">Sign Up</a>
+        </div>
+        <div class="col-lg-6 animated fadeIn">
+          <img class="img-fluid animated pulse infinite" style="animation-duration: 3s;" src="/assets/img/hero-3.jpg"
+            alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Features Start -->
+  <div class="container-xxl py-5">
+    <div class="container">
+      <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+        <h1 class="display-6">Why Us!</h1>
+        <p class="text-primary fs-5 mb-5">The Best In our service</p>
+      </div>
+      <div class="row g-5">
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="d-flex align-items-start">
+            <div class="icons">
+              <i class="fa fa-user-plus"></i>
+            </div>
+            <div class="ps-4">
+              <h5 class="mb-3">Easy To Start</h5>
+              <span>sign up for free and choose the subscription plan</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+          <div class="d-flex align-items-start">
+            <div class="icons">
+              <i class="fa fa-lock"></i>
+            </div>
+            <div class="ps-4">
+              <h5 class="mb-3">Safe & Secure</h5>
+              <span>High security</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+          <div class="d-flex align-items-start">
+            <div class="icons">
+              <i class="fa fa-money-bill"></i>
+            </div>
+            <div class="ps-4">
+              <h5 class="mb-3">Invoicing made simple.</h5>
+              <span>Send an online invoice that customers can pay instantly</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="d-flex align-items-start icons">
+            <div class="icons">
+              <i class="fa fa-folder-plus"></i>
+            </div>
+            <div class="ps-4">
+              <h5 class="mb-3">Keep a Records of all Transactions</h5>
+              <span></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+          <div class="d-flex align-items-start">
+            <div class="icons">
+              <i class="fas fa-exchange-alt"></i>
+            </div>
+            <div class="ps-4">
+              <h5 class="mb-3">Fast Transfer</h5>
+              <span>Easy To Transfer money from your account to another.</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+          <div class="d-flex align-items-start">
+            <div class="icons">
+              <i class="fa fa-headset"></i>
+            </div>
+            <div class="ps-4">
+              <h5 class="mb-3">24/7 Support</h5>
+              <span>Feel free to contact us anytime
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Features End -->
+  <app-services></app-services>
+
+  <!-- FAQs Start -->
+  <div class="container-xxl py-5">
+    <div class="container">
+      <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+        <h1 class="display-6">FAQs</h1>
+        <p class="text-primary fs-5 mb-5">Frequently Asked Questions</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item wow fadeInUp" data-wow-delay="0.1s">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  How to open an account?
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Get the registration form by clicking on the Sing Up button on the top bar. Provide
+                  all information and click on the Sign Up button.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item wow fadeInUp" data-wow-delay="0.3s">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  I forgot my password. How do I reset it?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Go to our login.
+                  Click Forgot password?
+                  Enter the email address you use for {{name}} and click Next.
+                  Choose how you want to complete our security check and click Next.
+                  Once you complete the security check, we'll ask you to create a new password.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
+              <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                  Can I make payments with my linked credit cards?
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  yes.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item wow fadeInUp" data-wow-delay="0.5s">
+              <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  How do I decline or pay a money request or invoice?
+                </button>
+              </h2>
+              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Find the money request on My Transactions or go to Notifications.
+                  Select the money request.
+                  Click Cancel.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item wow fadeInUp" data-wow-delay="0.6s">
+              <h2 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  I want my money back. Can I cancel a payment?
+                </button>
+              </h2>
+              <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Canceling a completed payment immediately is generally not an option because the
+                  other party already has the money.
+                  Feel free to contact us and we will do our best
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item wow fadeInUp" data-wow-delay="0.7s">
+              <h2 class="accordion-header" id="headingSeven">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                  What are common scams and how do I spot them?
+                </button>
+              </h2>
+              <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  You receive an invoice or money request through {{name}}, but for a product you
+                  never ordered. Don't pay it.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- FAQs Start -->
+</body>

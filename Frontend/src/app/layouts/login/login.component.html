@@ -1,0 +1,43 @@
+<div class="jpg">
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <i class="fas fa-sign-in-alt"></i>
+      </div>
+
+      <!-- Login Form -->
+      <form [formGroup]="loginForm" id="myForm" (ngSubmit)="login()">
+        <input type="text" id="username" placeholder="Email" formControlName="email">
+        <ng-container *ngIf="loginForm.controls['email'].touched">
+          <p class="invalid-info" *ngIf="loginForm.controls['email']?.errors?.['required']">Please type your email!</p>
+        </ng-container>
+        <ng-container *ngIf="loginForm.controls['email'].touched">
+          <p class="invalid-info" *ngIf="loginForm.controls['email']?.errors?.['email']">Please type a valid email!</p>
+        </ng-container>
+        <input type="password" id="password" placeholder="Password" formControlName="password">
+        <ng-container *ngIf="loginForm.controls['password'].touched">
+          <p class="invalid-info" *ngIf="loginForm.controls['password']?.errors?.['required']">Please type your
+            password!</p>
+        </ng-container>
+        <ng-container *ngIf="loginForm.controls['password'].touched">
+          <p class="invalid-info" *ngIf="loginForm.controls['password']?.errors?.['minlength']">Password must be at
+            least 8 characters!</p>
+        </ng-container>
+        <input type="submit" value="Log In" [hidden]="!loginForm.valid">
+      </form>
+      <ng-container *ngIf="errorMsg">
+        <p class="invalid-info">{{errorMsg}}!</p>
+      </ng-container>
+
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="register">Don't have an account?, Register Now!</a>
+      </div>
+      <div id="formFooter">
+        <a class="underlineHover" href="reset-password">Reset Your Passowrd</a>
+      </div>
+    </div>
+  </div>
+</div>

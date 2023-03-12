@@ -1,0 +1,28 @@
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px">
+            <h1 class="display-6">Sell Assets</h1>
+            <p class="text-primary fs-5 mb-5"></p>
+        </div>
+        <form [formGroup]="sellAssetForm" (ngSubmit)="sendAsset()">
+            <div class="form-group">
+                <label>Choose Asset Type</label>
+                <input type="text" class="form-control" placeholder="Enter Asset Type" formControlName="assetType">
+            </div>
+            <label>Description</label>
+            <input type="text" class="form-control" formControlName="description" placeholder="description">
+            <label>Amount</label>
+            <input class="form-control bg-white" placeholder="amount" type="text" class="form-control"
+                formControlName="amount">
+            <label>asset</label>
+            <input class="form-control bg-white" placeholder="assetID" type="text" class="form-control"
+                formControlName="assetID">
+            <label>Transfer Asset to</label>
+            <input class="form-control bg-white" placeholder="use's email, username or Account no."
+                formControlName="buyerEmail">
+            <input type="submit" id="submit" class="btn btn-primary">
+        </form>
+
+
+    </div>
+</div>

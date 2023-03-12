@@ -1,0 +1,27 @@
+.notifications {
+  border-radius: 20px;
+  margin-top: 5px;
+  font-weight: bolder;
+  font-size: large;
+}
+#signOut {
+  cursor: pointer;
+  font-weight: 400;
+  color: #212529;
+  text-align: inherit;
+  white-space: nowrap;
+  border: 0;
+}
+#user-icon {
+  margin-right: 5px;
+}
+#bill-icon {
+  color: #16D5FF;
+  margin-right: 5px;
+}
+#bill-dropdown {
+  margin-bottom: 30px;
+}
+#due-date {
+  margin-top: 5px;
+}

@@ -1,0 +1,102 @@
+<div class="container">
+    <div class="row gutters-sm">
+  
+  
+      <div class="col-md-12">
+        <div class="card  ">
+  
+  
+  
+  
+          <div class="tab-content " style="margin: 50px;">
+  
+  
+            <div class="tab-pane active" id="profile">
+  
+              <hr>
+              <h1 class="bold font-weight-bold text-center">Send Money</h1>
+              <hr>
+              <form [formGroup]="sendMoneyForm" id="profileForm" (ngSubmit)="sendBill()">
+  
+  
+  
+                <div class="form-group">
+                    <label> Receiver Email</label>
+    
+                    <div>
+                      <select class="form-control bg-white" name="receiverEmail" formControlName="receiverEmail"
+                       >
+                        <option></option>
+                        <option [value]="user" *ngFor="let user of otherUser">{{ user}}</option>
+                      </select>
+                    </div>
+    
+    
+    
+                    <ng-container>
+                      <p class="invalid-info text-danger" *ngIf="sendMoneyForm.controls['receiverEmail']?.errors?.['required']
+                            "> Receiver Email is required</p>
+                    </ng-container>
+    
+    
+    
+                  </div>
+  
+  
+  
+  
+                <div class="form-group">
+                  <label for="firstName">Description</label>
+  
+                  <textarea type="text" class="form-control" id="description" aria-describedby="descriptionHelp"
+                    placeholder="Enter Company Name" formControlName="description"></textarea>
+                  <ng-container>
+                    <p class="invalid-info  text-danger " *ngIf="sendMoneyForm.controls['description']?.errors?.['required']">
+                      Description is required</p>
+                  </ng-container>
+                </div>
+  
+  
+  
+  
+                <div class="form-group">
+                  <label for="firstName">Amount</label>
+  
+                  <input type="number" class="form-control" id="amount" aria-describedby="amountHelp"
+                    placeholder="Enter Company Name" formControlName="amount">
+                  <ng-container>
+                    <p class="invalid-info text-danger" *ngIf="
+                    sendMoneyForm.controls['amount']?.errors?.['required']">
+                      Amount is required</p>
+                  </ng-container>
+                </div>
+  
+  
+  
+  
+  
+  
+  
+  
+                <input type="submit" id="submit" [disabled]="!sendMoneyForm.valid" class="btn btn-primary">
+  
+                <!-- <input type="submit" value="Update" id="submit" class="btn btn-primary" [disabled]="!profileForm.valid"> -->
+                <button type="reset" class="btn btn-light">Reset Changes</button>
+              </form>
+            </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

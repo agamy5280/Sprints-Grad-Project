@@ -1,0 +1,275 @@
+<!-- Add Assets Start -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <div
+      class="text-center mx-auto wow fadeInUp"
+      data-wow-delay="0.1s"
+      style="max-width: 500px"
+    >
+      <h1 class="display-6">Add New Assets</h1>
+      <p class="text-primary fs-5 mb-5"></p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <a href="assets" class="btn btn-primary py-3 px-4">Back</a>
+        <hr />
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item wow fadeInUp" data-wow-delay="0.1s">
+            <h2 class="accordion-header" id="headingOne">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                Add Real-estate
+              </button>
+            </h2>
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse show"
+              aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <form id="realEstateForm" (ngSubmit)="onRealEstateCreate()">
+                  <label for="name">Location</label>
+                  <input
+                    #location
+                    type="text"
+                    class="form-control"
+                    placeholder="Location"
+                    (change)="getLocation(location.value)"
+                  />
+                  <label for="name">Area</label>
+                  <input
+                    #area
+                    type="text"
+                    class="form-control"
+                    placeholder="Location"
+                    (change)="getArea(area.value)"
+                  />
+
+                  <label for="name">apartment_No</label>
+                  <input
+                    #apartment_No
+                    type="number"
+                    class="form-control"
+                    placeholder="apartment_No"
+                    (change)="getApartment_No(apartment_No.value)"
+                  />
+                  <label for="name">floor_No</label>
+                  <input
+                    #floor_No
+                    type="number"
+                    class="form-control"
+                    placeholder="floor_No"
+                    (change)="getFloor_No(floor_No.value)"
+                  />
+                  <label for="name">bedrooms</label>
+                  <input
+                    #bedrooms
+                    type="number"
+                    class="form-control"
+                    placeholder="bedrooms"
+                    (change)="getBedrooms(bedrooms.value)"
+                  />
+                  <label for="name">Documents</label>
+                  <input
+                    #document
+                    type="file"
+                    class="form-control"
+                    placeholder="document"
+                    (change)="getRealEstateFile($event)"
+                    accept=".pdf"
+                  />
+                  <div class="col-12">
+                    <button
+                      value="uploadFile"
+                      class="btn btn-primary py-3 px-4"
+                      type="submit"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
+            <h2 class="accordion-header" id="headingTwo">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                Add Vehicles
+              </button>
+            </h2>
+            <div
+              id="collapseTwo"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingTwo"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <form id="vehicleForm" (ngSubmit)="onvehicleCreate()">
+                  <label for="name">Brand</label>
+                  <input
+                    #brand
+                    type="text"
+                    class="form-control"
+                    placeholder="Brand"
+                    (change)="getBrand(brand.value)"
+                  />
+                  <label for="name">Model</label>
+                  <input
+                    #model
+                    type="text"
+                    class="form-control"
+                    placeholder="Model"
+                    (change)="getModel(model.value)"
+                  />
+                  <label for="name">Year</label>
+                  <input
+                    #year
+                    type="text"
+                    class="form-control"
+                    placeholder="Year"
+                    (change)="getYear(year.value)"
+                  />
+                  <label for="name">Millage</label>
+                  <input
+                    #millage
+                    type="number"
+                    class="form-control"
+                    placeholder="Millage"
+                    (change)="getMillage(millage.value)"
+                  />
+                  <label for="name">Color</label>
+                  <input
+                    #color
+                    type="text"
+                    class="form-control"
+                    placeholder="Color"
+                    (change)="getColor(color.value)"
+                  />
+                  <label for="name">Transmission-Type</label>
+                  <input
+                    #transmission_type
+                    type="text"
+                    class="form-control"
+                    placeholder="Transmission-type"
+                    (change)="getTransmission_Type(transmission_type.value)"
+                  />
+                  <label for="name">Condition</label>
+                  <input
+                    #condition
+                    type="text"
+                    class="form-control"
+                    placeholder="Condition"
+                    (change)="getCondition(condition.value)"
+                  />
+                  <label for="name">CC</label>
+                  <input
+                    #cc
+                    type="number"
+                    class="form-control"
+                    placeholder="CC"
+                    (change)="getCC(cc.value)"
+                  />
+                  <label for="name">Documents</label>
+                  <input
+                    id="document"
+                    type="file"
+                    class="form-control"
+                    placeholder="pdf"
+                    (change)="getVehicleDocument($event)"
+                    accept=".pdf"
+                  />
+                  <div class="col-12">
+                    <button
+                      value="uploadFile"
+                      class="btn btn-primary py-3 px-4"
+                      type="submit"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item wow fadeInUp" data-wow-delay="0.3s">
+            <h2 class="accordion-header" id="headingThree">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                Add Others?
+              </button>
+            </h2>
+            <div
+              id="collapseThree"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingThree"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <form id="assetOtherForm" (ngSubmit)="onAssetOtherCreate()">
+                  <label for="name">Name</label>
+                  <input
+                    #name
+                    type="text"
+                    class="form-control"
+                    placeholder="Name"
+                    (change)="getOtherName(name.value)"
+                  />
+
+                  <label for="description">Dscription</label>
+                  <input
+                    #description
+                    type="text"
+                    class="form-control"
+                    placeholder="Dscription"
+                    (change)="getOtherDescription(description.value)"
+                  />
+
+                  <label for="document">Documents</label>
+                  <input
+                    id="document"
+                    type="file"
+                    class="form-control"
+                    placeholder="pdf"
+                    (change)="getFile($event)"
+                    accept=".pdf"
+                  />
+
+                  <div class="col-12">
+                    <button
+                      value="uploadFile"
+                      class="btn btn-primary py-3 px-4"
+                      type="submit"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Add Assets End -->

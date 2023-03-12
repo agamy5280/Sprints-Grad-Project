@@ -1,0 +1,79 @@
+<div class="container-xxl py-5">
+  <div class="container">
+    <div
+      class="text-center mx-auto wow fadeInUp"
+      data-wow-delay="0.1s"
+      style="max-width: 500px"
+    >
+      <h1 class="display-6">My Invoices</h1>
+      <p class="text-primary fs-5 mb-5"></p>
+    </div>
+    <div class="row justify-content-center" style="text-align: center">
+      <div class="col-lg-10">
+        <table class="table">
+          <caption>
+            List of recent Invoices
+          </caption>
+          <thead class="bg-primary">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Type</th>
+              <th scope="col">From User</th>
+              <th scope="col">Description</th>
+              <th scope="col">Amount</th>
+              <th scope="col">created_at</th>
+              <th scope="col">Status</th>
+              <th scope="col">Accept</th>
+              <th scope="col">Reject</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let trans of transactions; let index = index">
+              <tr>
+                <th scope="row">{{ index + 1 }}</th>
+                <td>{{ trans["type"] }}</td>
+                <td>{{ trans["buyerID"] }}</td>
+                <td>{{ trans["description"] }}</td>
+                <td>{{ trans["amount"] }}</td>
+                <td>{{ trans["created_at"] | date }}</td>
+                <td>
+                  <ng-container *ngIf="trans.status == 'pending'">
+                    <a class="pending-btn" style="color: #fff">Pending</a>
+                  </ng-container>
+                  <ng-container id="color" *ngIf="trans.status == 'rejected'">
+                    <a class="rejected-btn" style="color: #fff">Rejected</a>
+                  </ng-container>
+                  <ng-container id="color" *ngIf="trans.status == 'completed'">
+                    <a class="completed-btn" style="color: #fff">Completed</a>
+                  </ng-container>
+                </td>
+                <td *ngIf="trans['status'] == 'pending'">
+                  <a
+                    class="completed-btn2"
+                    style="color: #fff"
+                    (click)="acceptAsset('accept')"
+                    >Accept</a
+                  >
+                </td>
+                <td *ngIf="trans['status'] == 'pending'">
+                  <a
+                    class="rejected-btn2"
+                    style="color: #fff"
+                    (click)="acceptAsset('reject')"
+                    >Rejected</a
+                  >
+                </td>
+                <td *ngIf="trans['status'] != 'pending'">
+                  <p>No action Needed</p>
+                </td>
+                <td *ngIf="trans['status'] != 'pending'">
+                  <p>No action Needed</p>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

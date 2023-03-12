@@ -1,0 +1,57 @@
+<div class="container-xxl py-5">
+  <div class="container">
+    <div
+      class="text-center mx-auto wow fadeInUp"
+      data-wow-delay="0.1s"
+      style="max-width: 500px"
+    >
+      <h1 class="display-6">My Bills</h1>
+      <p class="text-primary fs-5 mb-5"></p>
+    </div>
+    <div class="row justify-content-center" style="text-align: center">
+      <div class="col-lg-10">
+        <table class="table">
+          <caption>
+            List of recent Bills
+          </caption>
+          <thead class="bg-primary">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Type</th>
+              <th scope="col">Company Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Due Time</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let bill of bills; let index = index">
+              <tr>
+                <th scope="row">{{ index + 1 }}</th>
+                <td>{{ bill.type }}</td>
+                <td>{{ bill.company_name }}</td>
+                <td>{{ bill.description }}</td>
+                <td>{{ bill.amount }}</td>
+                <td>{{ bill.due_time }}</td>
+                <td>
+                  <ng-container *ngIf="bill.status == 'Paid'">
+                    <a class="paid-btn" style="color: #fff">Paid</a>
+                  </ng-container>
+                  <ng-container id="color" *ngIf="bill.status == 'unpaid'">
+                    <a
+                      class="unpaid-btn"
+                      style="color: #fff"
+                      (click)="payBill(bill.id)"
+                      >Pay</a
+                    >
+                  </ng-container>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

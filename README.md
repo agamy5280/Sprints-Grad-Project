@@ -17,21 +17,26 @@ ng serve
 ```
 # Back-End
 ```
-cp .env.example .env
+cp .env.example2 .env
+```
 ```
 Install the dependencies:
 ```
+```
 npm intall
+```
 ```
 composer install
 ```
-composer update
 ```
 php artisan key:generate
 ```
+```
 php artisan storage:link
 ```
+```
 php artisan migrate
+```
 ```
 php artisan serve
 ```
